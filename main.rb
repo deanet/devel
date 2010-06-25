@@ -9,12 +9,12 @@ configure do
 
 	require 'ostruct'
 	Blog = OpenStruct.new(
-		:title => 'a scanty blog',
-		:author => 'John Doe',
-		:url_base => 'http://localhost:4567/',
-		:admin_password => 'changeme',
-		:admin_cookie_key => 'scanty_admin',
-		:admin_cookie_value => '51d6d976913ace58',
+		:title => 'Banting Setir',
+		:author => 'blognya sopir yang gak punya mobil',
+		:url_base => 'http://192.168.0.177:4567/',
+		:admin_password => 'embuh',
+		:admin_cookie_key => 'embuh',
+		:admin_cookie_value => 'a8392SDK6d976913ace58',
 		:disqus_shortname => nil
 	)
 end
@@ -89,7 +89,7 @@ get '/auth' do
 end
 
 post '/auth' do
-	set_cookie(Blog.admin_cookie_key, Blog.admin_cookie_value) if params[:password] == Blog.admin_password
+	response.set_cookie(Blog.admin_cookie_key, Blog.admin_cookie_value) if params[:password] == Blog.admin_password
 	redirect '/'
 end
 
