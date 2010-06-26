@@ -1,4 +1,4 @@
-port = 3030
+port = 80
 
 desc "Start the app server"
 task :start => :stop do

@@ -3,6 +3,10 @@ require 'sinatra'
 
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/vendor/sequel'
 require 'sequel'
+require  'lib/domainredirect.rb'
+
+# This is how you use and configure Rack::DomainRedirect middleware
+use Rack::DomainRedirect, ['sopir.deanet.web.id, 'localhost']
 
 configure do
 	Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://blog.db')
@@ -11,7 +15,7 @@ configure do
 	Blog = OpenStruct.new(
 		:title => 'Banting Setir',
 		:author => 'blognya sopir yang gak punya mobil',
-		:url_base => 'http://192.168.0.177:4567/',
+		:url_base => 'http://sopir.deanet.web.id',
 		:admin_password => 'embuh',
 		:admin_cookie_key => 'embuh',
 		:admin_cookie_value => 'a8392SDK6d976913ace58',
@@ -37,6 +41,7 @@ helpers do
 	def auth
 		stop [ 401, 'Not authorized' ] unless admin?
 	end
+	
 end
 
 layout 'layout'
