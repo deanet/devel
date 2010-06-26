@@ -6,7 +6,7 @@ require 'sequel'
 require  'lib/domainredirect.rb'
 
 # This is how you use and configure Rack::DomainRedirect middleware
-use Rack::DomainRedirect, ['sopir.deanet.web.id, 'localhost']
+use Rack::DomainRedirect, ['sopir.deanet.web.id', 'localhost']
 
 configure do
 	Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://blog.db')
