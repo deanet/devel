@@ -6,20 +6,20 @@ require 'sequel'
 require  'lib/domainredirect.rb'
 
 # This is how you use and configure Rack::DomainRedirect middleware
-use Rack::DomainRedirect, ['sopir.deanet.web.id', '192.168.0.177']
+use Rack::DomainRedirect, ['dev.deanet.web.id', '192.168.0.177']
 
 configure do
 	Sequel.connect(ENV['DATABASE_URL'] || 'sqlite://blog.db')
 
 	require 'ostruct'
 	Blog = OpenStruct.new(
-		:title => 'Banting Setir',
-		:author => 'blognya sopir yang gak punya mobil',
-		:url_base => 'http://sopir.deanet.web.id',
-		:admin_password => 'embuh',
-		:admin_cookie_key => 'embuh',
+		:title => 'DEV DEANET',
+		:author => 'stuff.deanet.web.id',
+		:url_base => 'http://dev.deanet.web.id',
+		:admin_password => 'debianet23',
+		:admin_cookie_key => 'd3b14n3T',
 		:admin_cookie_value => 'a8392SDK6d976913ace58',
-		:disqus_shortname => nil
+		:disqus_shortname => 'devdeanet'
 	)
 end
 
