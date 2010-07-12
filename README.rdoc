@@ -1,0 +1,4 @@
+source code for http://dev.deanet.web.id
+fork from scanty.
+
+MIT LICENSE
