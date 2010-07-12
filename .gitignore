@@ -1,3 +1,4 @@
 *.log
 blog.db
 README.rdoc
+backup/
